@@ -17,6 +17,12 @@ const dirs = p => fs.readdirSync(p).filter(f => fs.statSync(join(p, f)).isDirect
         var matches = regex.exec(movie);
         var title = matches[1].trim();
         var year = matches[2];
+        
+        if (fs.existsSync(`${workingDirectory}/${movie}/poster.jpg`)) {
+            console.log(`Poster for movie "${movie}" already exists. Skipping...`);
+            return;
+        }
+        
         try {
             var movieInfo = await got('http://www.omdbapi.com/?apikey=133939a8&t=' + title + '&y=' + year, { json: true });
             var moviePoster  = movieInfo.body.Poster;

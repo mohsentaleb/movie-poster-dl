@@ -9,6 +9,6 @@
   "author": "Mohsen Taleb <mohsentaleb@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "got": "^9.6.0"
+    "got": "^11.8.5"
   }
 }
